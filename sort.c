@@ -57,5 +57,17 @@ void insertion_sort(int *numbers, unsigned count) {
 	memcpy(numbers, new, count*sizeof(int));
 }
 
-sorting_fn sorting_fns[] = {bubble_sort, insertion_sort, NULL};
+//void qsort(void *base, size_t nmemb, size_size, int (*compar) (const void *, const void *));
+//__attribute__ ((weak))
+int comp (const void * a, const void * b)
+{
+  return ( compare (*(int*)a , *(int*)b ));
+}
+void quick_sort(int *numbers, unsigned count)
+{
+	qsort(numbers, count, sizeof(int), comp);
 
+}
+
+
+sorting_fn sorting_fns[] = {bubble_sort, insertion_sort, quick_sort, NULL};
